@@ -1,9 +1,5 @@
 """
-Sample new images from a pre-trained DiT.
-mc modified: based on try7, add GM during the sampling process but strictly follow the GM influnce (no real draging in try1)
-(calculate real grad for each instance and obtain the mean in img space)
-addition: and this will be exceed when the sampling step t is within a specific timestep range. 
-!! but using gen_type as gm2 (try 7 gm1).
+Implementation for the gradient-similarity-based checkpoint selection algorithm.
 """
 import os
 import torch
