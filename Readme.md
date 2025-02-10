@@ -6,7 +6,7 @@ This is the official implementation for the ICLR 2025 paper "[Influence-Guided D
     <img src="docs/vis.jpg" width="800">
 </div>
 
-### Abstract
+## Abstract
 Dataset distillation refers to the task aims to streamline the training process by creating a compact yet effective dataset for a much larger original dataset. 
 
 Motivated by the remarkable capabilities of **diffusion generative models in learning target dataset distributions** and controllably sampling high-quality data tailored to user needs, we propose framing dataset distillation as a controlled diffusion generation task aimed at **generating data specifically tailored for effective training purposes**. 
@@ -17,6 +17,7 @@ An **influence guidance** function is designed by leveraging TracIn as an indica
 
 Extensive experiments show that our IGD method achieving state-of-the-art performance in distilling ImageNet datasets. 
 
+## Implementation
 ### Getting Started
 
 First, create the conda virtual enviroment
@@ -56,14 +57,14 @@ Please run the following script to train a ResNetAP-10 model on the generated da
 bash train.sh
 ```
 
-### Hyperparameters Setup
+## Hyperparameters Setup
 Please use the following hyperparameters to reproduce our results reported in Table 1 & 2 of the paper:
 <div align="center">
   <img src='docs/hyperparams.jpg' width=600>
 </div>
 
 
-### Citation
+## Citation
 If you find our work useful for your research, please cite:
 ```
 @inproceedings{
@@ -76,7 +77,7 @@ url={https://openreview.net/forum?id=0whx8MhysK}
 }
 ```
 
-### Acknowledgements
+## Acknowledgements
 This project is mainly developed based on the following works:
 - [DiT](https://github.com/facebookresearch/DiT)
 - [MinimaxDiffusion](https://github.com/vimar-gu/MinimaxDiffusion)
