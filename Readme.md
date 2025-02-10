@@ -44,11 +44,11 @@ bash ./train_ckpts.sh
 This script will train one ConvNet-6 models on your target dataset (depicted by "spec") for 50 epochs. The well-trained model will store at ./ckpts/.
 
 ### Influence-Guided Sampling for DiT
-Running the following sript will generate a IPC50 surrogate dataset for ImageWoof based on a pre-trained DiT with our IGD sampling method. 
+Running the following sript will generate a IPC50 surrogate dataset for ImageWoof based on a pre-trained [DiT](https://github.com/facebookresearch/DiT) with our IGD sampling method. 
 ```
 bash sample_mp.sh
 ```
-To reproduce the our result achieved with Minimax fine-tuning approch, you need to access the []official repo of Minimax and fine-tuning a DiT model under their guidance.  
+To reproduce the our result achieved with [Minimax](https://github.com/vimar-gu/MinimaxDiffusion) fine-tuning approch, you need to access the official repo of Minimax and fine-tuning a DiT model under their guidance.  
 
 ### Training Models on the Generated Data for Validation
 Please run the following script to train a ResNetAP-10 model on the generated dataset with 5 random seeds.
@@ -61,3 +61,24 @@ Please use the following hyperparameters to reproduce our results reported in Ta
 <div align="center">
   <img src='docs/hyperparams.jpg' width=600>
 </div>
+
+
+### Citation
+If you find our work useful for your research, please cite:
+```
+@inproceedings{
+chen2025influenceguided,
+title={Influence-Guided Diffusion for Dataset Distillation},
+author={Mingyang Chen and Jiawei Du and Bo Huang and Yi Wang and Xiaobo Zhang and Wei Wang},
+booktitle={The Thirteenth International Conference on Learning Representations},
+year={2025},
+url={https://openreview.net/forum?id=0whx8MhysK}
+}
+```
+
+### Acknowledgements
+This project is mainly developed based on the following works:
+- [DiT](https://github.com/facebookresearch/DiT)
+- [MinimaxDiffusion](https://github.com/vimar-gu/MinimaxDiffusion)
+- [MTT](https://github.com/GeorgeCazenavette/mtt-distillation)
+- [guided-diffusion](https://github.com/openai/guided-diffusion)
