@@ -44,12 +44,17 @@ bash ./train_ckpts.sh
 
 This script will train one ConvNet-6 models on your target dataset (depicted by "spec") for 50 epochs. The well-trained model will store at ./ckpts/.
 
+### Downloading pre-trained DiT models
+```
+python download.py
+```
+
 ### Influence-Guided Sampling for DiT
 Running the following sript will generate a IPC50 surrogate dataset for ImageWoof based on a pre-trained [DiT](https://github.com/facebookresearch/DiT) with our IGD sampling method. 
 ```
 bash sample_mp.sh
 ```
-To reproduce the our result achieved with [Minimax](https://github.com/vimar-gu/MinimaxDiffusion) fine-tuning approch, you need to access the official repo of Minimax and fine-tuning a DiT model under their guidance.  
+To reproduce the our result achieved with [Minimax](https://github.com/vimar-gu/MinimaxDiffusion) fine-tuning approch, you need to access the official repo of Minimax and fine-tuning a DiT model under their guidance. After collecting the the Minimax fine-tuning chekpoint, replace its path with the original DiT's. 
 
 ### Training Models on the Generated Data for Validation
 Please run the following script to train a ResNetAP-10 model on the generated dataset with 5 random seeds.
