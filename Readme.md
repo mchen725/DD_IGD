@@ -42,7 +42,7 @@ Before starting, ensure that your ImageNet-1K dataset is located at:
 Before running distillation, you need to train a surrogate model on the original dataset by executing:
 
 ```bash
-bash ./train_ckpts.sh
+bash train_ckpts.sh
 ```
 
 This script will train a ConvNet-6 model on your target dataset (specified by "spec") for 50 epochs. The trained model will be saved in `./ckpts/`.
