@@ -63,7 +63,10 @@ bash sample_mp.sh
 
 To reproduce our results obtained with the [Minimax](https://github.com/vimar-gu/MinimaxDiffusion) fine-tuning approach, follow these steps:
 1. Access the official Minimax repository and fine-tune a DiT model as per their instructions.
-2. After obtaining the Minimax fine-tuned checkpoint, replace its path with the original DiT model's path.
+2. After obtaining the Minimax fine-tuned checkpoint, modify its path in the following script and run:
+```
+bash sample_mp_minimax.sh
+```
 
 ### Training Models on the Generated Data for Validation
 
