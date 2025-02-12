@@ -321,7 +321,7 @@ def main(args):
             y = torch.cat([y, y_null], 0)
 
             gm_resource = [vae, surrogate, ckpts, real_gradients[class_label], correspond_labels[class_label], criterion_ce, args.repeat, args.repeat, args.gm_scale]
-            model_kwargs = dict(y=y, cfg_scale=args.cfg_scale, gm_resource=gm_resource, gen_type='igd',low=args.low,high=args.high, pseudo_memory_c=pseudo_memory_c, neg_e=args.lambda_neg)
+            model_kwargs = dict(y=y, cfg_scale=args.cfg_scale, gm_resource=gm_resource, gen_type='igd',low=args.low,high=args.high, pseudo_memory_c=pseudo_memory_c, neg_e=args.dev_scale)
 
             # Sample images:
             samples = diffusion.p_sample_loop(
@@ -338,7 +338,6 @@ def main(args):
                 save_image(image, os.path.join(args.save_dir, sel_class,
                                                f"{image_index + shift * batch_size + args.total_shift}.png"), normalize=True, value_range=(-1, 1))
 
-    print('following is the result of pos_e %s and neg_e %s'%(args.lambda_pos, args.lambda_neg))
 
 
 if __name__ == "__main__":
@@ -363,11 +362,10 @@ if __name__ == "__main__":
     parser.add_argument("--memory-size", type=int, default=64, help='the memory size')
     parser.add_argument("--real_ipc", type=int, default=1000, help='the number of samples participating in the fine-tuning')
     parser.add_argument("--grad-ipc", type=int, default=80, help='the number of samples participating in the fine-tuning')
-    parser.add_argument('--lambda-pos', default=0.03, type=float, help='weight for representativeness constraint')
-    parser.add_argument('--lambda-neg', default=0.01, type=float, help='weight for diversity constraint')
+    parser.add_argument("--gm-scale", type=float, default=0.02, help='weight for influence guidance')
+    parser.add_argument('--dev-scale', type=float, default=0.01, help='weight for deviation guidance')
     parser.add_argument("--data-path", type=str, required=True)
     parser.add_argument("--net-type", type=str, default='convnet6')
-    parser.add_argument("--gm-scale", type=float, default=0.02)
     parser.add_argument("--low", type=int, default=500, help='allowed lowest time step for gm guidance')
     parser.add_argument("--high", type=int, default=800, help='allowed highest time step for gm guidance')
     parser.add_argument("--ckpt_path", type=str, required=True)
