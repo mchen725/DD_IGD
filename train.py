@@ -10,7 +10,7 @@ import torch.optim as optim
 import torchvision.models as models
 import train_models.resnet as RN
 import train_models.resnet_ap as RNAP
-import train_models.convnet_ori as CN
+import train_models.convnet as CN
 import train_models.densenet_cifar as DN
 from data import load_data, MEANS, STDS
 from misc.utils import random_indices, rand_bbox, AverageMeter, accuracy, get_time, Plotter
